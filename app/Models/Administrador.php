@@ -9,16 +9,18 @@ class Administrador extends Model
 {
     use HasFactory;
 
-    protected $table = "administrador";
-    protected $primaryKey = "CODADMINISTRADOR";
+    protected $table = 'administrador'; // Nombre de la tabla en la base de datos
+    protected $primaryKey = 'CODADMINISTRADOR'; // Clave primaria
+    public $incrementing = false; // Si la clave primaria es autoincrementable
+    protected $keyType = 'string'; // Tipo de dato de la clave primaria
+
     protected $fillable = [
-        "CODADMINISTRADOR",
-        "NOMBREADMINISTRAOR",
-        "CONTRASENAADMINISTRADOR",
-        "CORREO", "TELEFONO"
+        'CODCOMITE',
+        'nombreadministrador',
+        'contrasenaadministrador',
+        'correo',
+        'telefono',
     ];
 
-    public $incrementing = false;
-    protected $keyType = 'string';
-    public $timestamps = false;
+    // Resto de tu modelo y relaciones si las tienes
 }

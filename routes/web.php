@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EleccionesController;
-
+use App\Http\Controllers\AdministradorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +19,11 @@ Route::get('/',function(){
     return "holamundo";
 });
 
-Route::get('/verificarAdministrador/{id}',[App\Http\Controllers\AdministradorController::class,"verificarAdministrador"]);
+//Route::get('/verificarAdministrador',[App\Http\Controllers\AdministradorController::class,"index"]);
+Route::get('/verificarAdministradorall', [AdministradorController::class,'index']);
+
+Route::get('verificarAdministrador/{name}', [AdministradorController::class, 'verificarAdministrador']);
+
 Route::get('/obtenerProcesosElectorales',[App\Http\Controllers\ProcesoElectoralController::class,"obtenerProcesosElectorales"]);
 
 Route::post('/crearProcesoElectoral',[App\Http\Controllers\ProcesoElectoralController::class,"agregarProcesoElectoral"]);
@@ -37,5 +41,6 @@ Route::get('/ver-lista-comite/{idComite}', [App\Http\Controllers\AsociarTitularS
 //veidicar exit
 Route::get('/verificar-comite/{codComite}', [App\Http\Controllers\AsociarTitularSuplenteController::class, 'verificarExistenciaComite']);
 
+//Route::get('/elecciones_data', [EleccionesController::class, 'index']);
 
 Route::post('/elecciones_data', [EleccionesController::class, 'store']);

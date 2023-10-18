@@ -1,25 +1,23 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
 
 class Elecciones extends Model
 {
-    protected $table = 'elecciones2'; // Nombre de la tabla
+    protected $table = 'eleccioness'; // Nombre de la tabla en la base de datos
     protected $primaryKey = 'COD_ELECCION'; // Clave primaria
-    public $timestamps = true; // Habilitar timestamps (created_at y updated_at)
-
+    public $timestamps = true; // Habilitar los campos created_at y updated_at
+   
     protected $fillable = [
-        'COD_ELECCION',
         'COD_ADMIN',
         'COD_FRENTE',
         'COD_TEU',
         'COD_COMITE',
         'MOTIVO_ELECCION',
         'FECHA_ELECCION',
-        'ELECCION_ACTIVA',
         'FECHA_INI_CONVOCATORIA',
-        'FECHA_FIN_CONVOCATORIA'
+        'FECHA_FIN_CONVOCATORIA',
+        'ELECCION_ACTIVA',
     ];
 }
