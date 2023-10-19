@@ -22,7 +22,6 @@ class Eleccion extends Model
 
 
     protected $fillable = [
-        'CODELECCION',
         'CODCOMITE',
         'CODADMINISTRADOR',
         'MOTIVOELECCION',

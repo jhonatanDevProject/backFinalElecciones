@@ -1,29 +1,37 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Eleccion2 extends Model
+class Poblacion extends Model
 {
-    protected $table = 'ELECCION2';
-    protected $primaryKey = 'COD_ELECCION';
+    use HasFactory;
+    public $incrementing = false;
+    protected $keyType = 'string';
     public $timestamps = false;
 
+
+
+
+    protected $table = 'poblacion';
+
+    protected $primaryKey = 'CODSIS'; // Ajusta la clave primaria según tus necesidades
+
     protected $fillable = [
-        'COD_ADMIN',
-        'COD_FRENTE',
-        'COD_TEU',
-        'COD_COMITE',
-        'MOTIVO_ELECCION',
-        'FECHA_ELECCION',
-        'ELECCION_ACTIVA',
+        'COD_CANDIDATO',
+        'CODCOMITE',
+        'NOMBRE',
+        'APELLIDO',
+        'CARNETIDENTIDAD',
+        'APELLIDOS',
+        'ESTUDIANTE',
+        'DOCENTE'
     ];
 
-    // Define las reglas de validación para los campos
-    public static $rules = [
-        'MOTIVO_ELECCION' => 'required|string',
-        'FECHA_ELECCION' => 'required|date',
-        'ELECCION_ACTIVA' => 'required|boolean',
-    ];
+
+
+    protected $guarded = [];
 }

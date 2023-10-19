@@ -9,6 +9,18 @@ use Illuminate\Support\Facades\DB;
 
 class PoblacionController extends Controller
 {
+
+    public function index()
+    {
+        // Obtiene todos los registros de la tabla eleccions
+        $elecciones = Poblacion::all();
+
+        // Devuelve los datos como respuesta JSON
+        return response()->json(['data' => $elecciones]);
+    }
+
+
+
     public function asignarVocales($COD_COMITE) {
         // Filtrar 6 docentes y 4 estudiantes de forma aleatoria en base al COD_COMITE
         $docentes = Poblacion::inRandomOrder()
