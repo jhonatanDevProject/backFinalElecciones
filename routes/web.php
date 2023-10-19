@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EleccionesController;
 use App\Http\Controllers\AdministradorController;
+use App\Http\Controllers\EleccionController;
+use App\Http\Controllers\PoblacionController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +47,17 @@ Route::get('/verificar-comite/{codComite}', [App\Http\Controllers\AsociarTitular
 
 //Route::get('/elecciones_data', [EleccionesController::class, 'index']);
 
+Route::get('/elecciones_index', [EleccionesController::class, 'index']);
+
 Route::post('/elecciones_data', [EleccionesController::class, 'store']);
+
+Route::get('/obtener_id/{id}', [EleccionesController::class, 'obtenerEleccionPorId']);
+Route::put('/eleccionesUpdate/{id}', [EleccionesController::class, 'update']);
+
+
+
+
+Route::post('/eleccionesStore', [EleccionController::class, 'store']);
+
+
+Route::get('/poblacionindex', [PoblacionController::class, 'index']);

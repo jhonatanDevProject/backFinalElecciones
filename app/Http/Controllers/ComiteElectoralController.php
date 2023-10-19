@@ -15,9 +15,6 @@ class ComiteElectoralController extends Controller
 {
 
 
-
-
-
     public function asignarComite($COD_ELECCION)
     {
         // Obtén la información de la elección

@@ -16,7 +16,27 @@ class EleccionController extends Controller
 
         return response()->json($elecciones);
     }
+
+
+    public function store(Request $request)
+    {
+        $eleccion = new Eleccion();
+        $eleccion->CODELECCION = $request->CODELECCION;
+        $eleccion->CODCOMITE = $request->CODCOMITE;
+        $eleccion->CODADMINISTRADOR = $request->CODADMINISTRADOR;
+        $eleccion->MOTIVOELECCION = $request->MOTIVOELECCION;
+        $eleccion->FECHAELECCION = $request->FECHAELECCION;
+        $eleccion->ELECCIONACTIVA = $request->ELECCIONACTIVA;
+        $eleccion->save();
+        return "La elección se ha creado correctamente.";
+    }
+    
+
+
 }
+
+
+
 /*
 
 use App\Http\Requests\validarEleccion;
