@@ -24,9 +24,9 @@ Route::get('/verificarAdministradorall', [AdministradorController::class,'index'
 
 Route::get('verificarAdministrador/{name}', [AdministradorController::class, 'verificarAdministrador']);
 
-Route::get('/obtenerProcesosElectorales',[App\Http\Controllers\ProcesoElectoralController::class,"obtenerProcesosElectorales"]);
+Route::get('/obtenerProcesosElectorales',[App\Http\Controllers\eleccionesController::class,"obtenerProcesosElectorales"]);
 
-Route::post('/crearProcesoElectoral',[App\Http\Controllers\ProcesoElectoralController::class,"agregarProcesoElectoral"]);
+Route::post('/crearelecciones',[App\Http\Controllers\eleccionesController::class,"agregarelecciones"]);
 
 
 Route::post('/asignar-vocales/{COD_COMITE}', [App\Http\Controllers\PoblacionController::class, 'asignarVocales']);
@@ -44,3 +44,10 @@ Route::get('/verificar-comite/{codComite}', [App\Http\Controllers\AsociarTitular
 //Route::get('/elecciones_data', [EleccionesController::class, 'index']);
 
 Route::post('/elecciones_data', [EleccionesController::class, 'store']);
+
+//routas HU1-2-3
+Route::get('/elecciones', [EleccionesController::class, 'index'])->name('elecciones');
+Route::post('/elecciones/nuevo', [EleccionesController::class, 'store'])->name('elecciones-store');
+Route::get('/elecciones/{id}', [EleccionesController::class, 'show'])->name('elecciones-edit');
+Route::patch('/elecciones/{id}', [EleccionesController::class, 'update'])->name('elecciones-update');
+
