@@ -9,7 +9,7 @@ class AsociarTitularSuplente extends Model
 {
     use HasFactory;
 
-    protected $table = 'asocialtitularsuplente';
+    protected $table = 'asociartitularsuplente';
 
     protected $fillable = [
         'ID_TS',
