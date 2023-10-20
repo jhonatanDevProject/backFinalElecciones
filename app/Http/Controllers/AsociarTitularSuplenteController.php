@@ -29,8 +29,8 @@ class AsociarTitularSuplenteController extends Controller
     public function verListaComite($idComite)
     {
         // Filtrar registros con codTitular_Suplente = 1
-        $titulares = DB::table('asocialtitularsuplente')
-            ->join('poblacion', 'asocialtitularsuplente.COD_SIS', '=', 'poblacion.CODSIS')
+        $titulares = DB::table('asociartitularsuplente')
+            ->join('poblacion', 'asociartitularsuplente.COD_SIS', '=', 'poblacion.CODSIS')
             ->select(
                 'poblacion.CARNETIDENTIDAD',
                 'poblacion.NOMBRE',
@@ -38,13 +38,13 @@ class AsociarTitularSuplenteController extends Controller
                 'poblacion.ESTUDIANTE', // Agregar campo ESTUDIANTE
                 'poblacion.DOCENTE' // Agregar campo DOCENTE
             )
-            ->where('asocialtitularsuplente.COD_COMITE', $idComite)
-            ->where('asocialtitularsuplente.COD_TITULAR_SUPLENTE', "1")
+            ->where('asociartitularsuplente.COD_COMITE', $idComite)
+            ->where('asociartitularsuplente.COD_TITULAR_SUPLENTE', "1")
             ->get();
     
         // Consulta para los suplentes (codTitular_Suplente = 2)
-        $suplentes = DB::table('asocialtitularsuplente')
-            ->join('poblacion', 'asocialtitularsuplente.COD_SIS', '=', 'poblacion.CODSIS')
+        $suplentes = DB::table('asociartitularsuplente')
+            ->join('poblacion', 'asociartitularsuplente.COD_SIS', '=', 'poblacion.CODSIS')
             ->select(
                 'poblacion.CARNETIDENTIDAD',
                 'poblacion.NOMBRE',
@@ -52,8 +52,8 @@ class AsociarTitularSuplenteController extends Controller
                 'poblacion.ESTUDIANTE', // Agregar campo ESTUDIANTE
                 'poblacion.DOCENTE' // Agregar campo DOCENTE
             )
-            ->where('asocialtitularsuplente.COD_COMITE', $idComite)
-            ->where('asocialtitularsuplente.COD_TITULAR_SUPLENTE', "2")
+            ->where('asociartitularsuplente.COD_COMITE', $idComite)
+            ->where('asociartitularsuplente.COD_TITULAR_SUPLENTE', "2")
             ->get();
     
         // Devuelve una respuesta JSON con los datos
@@ -64,7 +64,7 @@ class AsociarTitularSuplenteController extends Controller
     public function verificarExistenciaComite($codComite)
 {
     // Realiza una consulta para verificar la existencia del comité en la tabla asocialtitularsuplente
-    $existeComite = DB::table('asocialtitularsuplente')
+    $existeComite = DB::table('asociartitularsuplente')
         ->where('COD_COMITE', $codComite)
         ->exists();
 

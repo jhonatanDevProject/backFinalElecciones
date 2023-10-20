@@ -37,11 +37,11 @@ class EleccionesController extends Controller
         $numeroAleatorio = rand(1, 500);
 
 // Convertir el número a un valor de tipo char
-        $numeroChar = $request->COD_ELECCION+$numeroAleatorio;
+      //  $numeroChar = $request->COD_ELECCION+$numeroAleatorio;
 
         $eleccion = new Eleccion();
         $eleccion->CODELECCION = (string)$numeroAleatorio;
-        $eleccion->CODCOMITE = (string)$numeroChar;
+        $eleccion->CODCOMITE = (string)$numeroAleatorio;
         $eleccion->CODADMINISTRADOR = $request->COD_ADMIN;
         $eleccion->MOTIVOELECCION = $request->MOTIVO_ELECCION;
         $eleccion->FECHAELECCION = $request->FECHA_ELECCION;

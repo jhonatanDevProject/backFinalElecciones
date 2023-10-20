@@ -22,7 +22,7 @@ class ComiteElectoralController extends Controller
 
         if ($eleccion) {
             // Paso 1: Obtén la lista de COD_SIS de asociar_titularSuplente para el comité actual
-            $asignados = DB::table('asocialtitularsuplente')
+            $asignados = DB::table('asociartitularsuplente')
                 ->pluck('COD_SIS')
                 ->toArray();
 
