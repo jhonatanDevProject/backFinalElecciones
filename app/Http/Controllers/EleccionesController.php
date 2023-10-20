@@ -14,6 +14,7 @@ class EleccionesController extends Controller
     {
         // Obtiene todos los registros de la tabla eleccions
         $elecciones = Elecciones::all();
+      
 
         // Devuelve los datos como respuesta JSON
         return response()->json(['data' => $elecciones]);
@@ -22,11 +23,14 @@ class EleccionesController extends Controller
    
     public function store(Request $request)
     {
+
+        $numeroAleatorio = rand(1, 500);//añade randomicamiente codComision cuidado se repita
+
         $eleccion = new Elecciones();
         $eleccion->COD_ADMIN = $request->COD_ADMIN;
         $eleccion->COD_FRENTE = $request->COD_FRENTE;
         $eleccion->COD_TEU = $request->COD_TEU;
-        $eleccion->COD_COMITE = $request->COD_COMITE;
+        $eleccion->COD_COMITE = (string)$numeroAleatorio;
         $eleccion->MOTIVO_ELECCION = $request->MOTIVO_ELECCION;
         $eleccion->FECHA_ELECCION = $request->FECHA_ELECCION;
         $eleccion->FECHA_INI_CONVOCATORIA = $request->FECHA_INI_CONVOCATORIA;
@@ -34,7 +38,7 @@ class EleccionesController extends Controller
         $eleccion->ELECCION_ACTIVA = $request->ELECCION_ACTIVA;
         $eleccion->save();
 
-        $numeroAleatorio = rand(1, 500);
+        
 
 // Convertir el número a un valor de tipo char
       //  $numeroChar = $request->COD_ELECCION+$numeroAleatorio;

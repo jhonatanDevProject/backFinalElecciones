@@ -6,6 +6,10 @@ use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\EleccionController;
 use App\Http\Controllers\PoblacionController;
 
+use App\Http\Controllers\original\ComiteElectoralController2;
+use App\Http\Controllers\original\AsociarTitularSuplenteController2;
+use App\Http\Controllers\original\PoblacionController2;
+use App\Http\Controllers\original\EleccionController2;
 
 
 /*
@@ -33,11 +37,12 @@ Route::get('/obtenerProcesosElectorales',[App\Http\Controllers\ProcesoElectoralC
 Route::post('/crearProcesoElectoral',[App\Http\Controllers\ProcesoElectoralController::class,"agregarProcesoElectoral"]);
 
 
-Route::post('/asignar-vocales/{COD_COMITE}', [App\Http\Controllers\PoblacionController::class, 'asignarVocales']);
-
+Route::put('/elecciones/asignar_comite/{COD_ELECCION}', [App\Http\Controllers\ComiteElectoralController::class, 'asignarComite']);
 Route::get('/elecciones', [App\Http\Controllers\EleccionController::class, 'index']);
 
-Route::put('/asignar-comite/{COD_ELECCION}', [App\Http\Controllers\ComiteElectoralController::class, 'asignarComite']);
+//Route::put('/asignar_comite/{COD_ELECCION}', [App\Http\Controllers\ComiteElectoralController::class, 'asignarComite']);
+Route::post('/asignar_vocales/{COD_COMITE}', [App\Http\Controllers\PoblacionController::class, 'asignarVocales']);
+
 
 
 Route::get('/ver-lista-comite/{idComite}', [App\Http\Controllers\AsociarTitularSuplenteController::class, 'verListaComite']);
@@ -61,3 +66,17 @@ Route::post('/eleccionesStore', [EleccionController::class, 'store']);
 
 
 Route::get('/poblacionindex', [PoblacionController::class, 'index']);
+
+
+
+
+
+
+Route::post('/asignar-vocales2/{COD_COMITE}', [PoblacionController2::class, 'asignarVocales']);
+Route::get('/elecciones2', [EleccionController2::class, 'index']);
+
+Route::put('/asignar-comite2/{COD_ELECCION}', [ComiteElectoralController2::class, 'asignarComite']);
+
+
+Route::get('/ver-lista-comite2/{idComite}', [AsociarTitularSuplenteController2::class, 'verListaComite']);
+
